@@ -1,0 +1,15 @@
+<div class="container my-4">
+  <h2 class="mb-3">🍎 Frutta Fresca</h2>
+  <div class="row g-3">
+    @for (item of fruits; track item.name) {
+      <div class="col-12 col-sm-6 col-md-3">
+        <div class="card text-center shadow-sm p-3">
+          <div class="display-1">{{ item.emoji }}</div>
+          <div class="card-body p-2">
+            <h5 class="card-title m-0">{{ item.name }}</h5>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>
