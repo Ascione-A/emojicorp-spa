@@ -1,0 +1,18 @@
+.emoji-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.emoji-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.emoji-icon {
+  user-select: none;
+  transition: transform 0.2s;
+}
+
+.emoji-card:hover .emoji-icon {
+  transform: scale(1.15);
+}
