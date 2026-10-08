@@ -1,41 +1,34 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Emoji } from '../../../models/emojimodel';
+import { Emoji } from '../../models/emoji.model';
 
 @Component({
   selector: 'app-generic',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './generic.html',
   styleUrl: './generic.css'
 })
 export class GenericComponent implements OnInit {
-
-
-
   categoryKey: string = '';
   itemsList: Emoji[] = [];
 
   private dataset: Record<string, Emoji[]> = {
     animals: [
       { name: 'Leone', emoji: '🦁', category: 'Mammifero' },
-      { name: 'Aquila', emoji: '🦅', category: 'Uccello' },
-      { name: 'Squalo', emoji: '🦈', category: 'Pesce' }
+      { name: 'Cane', emoji: '🐶', category: 'Mammifero' },
+      { name: 'Gatto', emoji: '🐱', category: 'Mammifero' },
+      { name: 'Panda', emoji: '🐼', category: 'Mammifero' }
     ],
-
     fruits: [
       { name: 'Mela', emoji: '🍎', category: 'Fresco' },
       { name: 'Banana', emoji: '🍌', category: 'Tropicale' },
       { name: 'Fragola', emoji: '🍓', category: 'Rosso' }
     ],
-
     food: [
       { name: 'Pizza', emoji: '🍕', category: 'Italiano' },
       { name: 'Burger', emoji: '🍔', category: 'Fast Food' },
       { name: 'Taco', emoji: '🌮', category: 'Messicano' }
     ],
-
     vehicles: [
       { name: 'Auto', emoji: '🚗', category: 'Terrestre' },
       { name: 'Aereo', emoji: '✈️', category: 'Aereo' },
@@ -43,33 +36,24 @@ export class GenericComponent implements OnInit {
     ]
   };
 
-  // Mettiamo 'ActivatedRoute' all'interno del costruttore.
-  // Angular fornisce automaticamente l'istanza contenente le informazioni sulla rotta attiva.
   constructor(private route: ActivatedRoute) {}
 
-
-  // ngOnInit viene eseguito automaticamente subito dopo la creazione del componente
   ngOnInit(): void {
-    // 'paramMap' è un Observable (un flusso di dati continuo).
-    // Con .subscribe() ci mettiamo in ascolto dei cambiamenti nell'URL.
-    // Ogni volta che l'ID nell'URL cambia (es. da /generic/fruits a /generic/food),
-    // la funzione callback 'getRouterParam' viene eseguita automaticamente.
+    // Iscrizione all'Observable paramMap: intercetta il cambio dell'URL in tempo reale
     this.route.paramMap.subscribe((params: ParamMap) => {
-      this.getRouterParam(params);
+      const id = params.get('id');
+      this.loadCategoryData(id);
     });
   }
 
-  // METODO DI LOGICA: Estrae il parametro ed elabora i dati corrispondenti
-  getRouterParam(params: ParamMap): void {
-    // Estraiamo il valore della variabile ':id' definita nel file app.routes.ts
-    const id = params.get('id');
-
-    // Verifichiamo che l'ID esista e sia una chiave valida del nostro datastore
+  private loadCategoryData(id: string | null): void {
     if (id && this.dataset[id]) {
       this.categoryKey = id;
-      this.itemsList = this.dataset[id]; // Aggiorna il vettore con i dati corretti
+      // Assegnazione di un nuovo riferimento array per forzare il refresh della vista
+      this.itemsList = [...this.dataset[id]];
     } else {
-      this.itemsList = []; // Reset se la categoria non esiste
+      this.categoryKey = '';
+      this.itemsList = [];
     }
   }
 }

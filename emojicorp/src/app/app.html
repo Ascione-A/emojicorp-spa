@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
   <div class="container">
-    <a class="navbar-brand fw-bold" routerLink="/">🚀 EmojiCorp</a>
+    <a class="navbar-brand fw-bold" [routerLink]="['/generic', 'animals']">🚀 EmojiCorp</a>
     <div class="navbar-nav">
+      <!-- Usare [routerLink] con sintassi a vettore e NON href -->
       <a class="nav-link" [routerLink]="['/generic', 'animals']" routerLinkActive="active-menu">🐶 Animali</a>
       <a class="nav-link" [routerLink]="['/generic', 'fruits']" routerLinkActive="active-menu">🍎 Frutta</a>
       <a class="nav-link" [routerLink]="['/generic', 'food']" routerLinkActive="active-menu">🍕 Cibo</a>
