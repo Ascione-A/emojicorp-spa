@@ -1,20 +1,22 @@
 /* Styling della barra di navigazione */
 .navbar {
-  backdrop-filter: blur(8px);
-  background-color: rgba(33, 37, 41, 0.95) !important;
+  backdrop-filter: blur(8px); /* Applica un effetto sfocato sullo sfondo */
+  background-color: rgba(33, 37, 41, 0.95) !important; /* Imposta uno sfondo scuro quasi opaco */
 }
 
+/* Stile del logo */
 .navbar-brand {
-  font-size: 1.4rem;
-  letter-spacing: -0.5px;
-  transition: transform 0.2s ease;
+  font-size: 1.4rem; /* Aumenta la dimensione del testo */
+  letter-spacing: -0.5px; /* Riduce lo spazio tra le lettere */
+  transition: transform 0.2s ease; /* Rende fluida l'animazione */
 }
 
+/* Effetto al passaggio del mouse sul logo */
 .navbar-brand:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Ingrandisce leggermente il logo */
 }
 
-/* Spaziatura contenuto principale */
+/* Spaziatura e altezza del contenuto principale */
 main {
-  min-height: calc(100vh - 120px);
+  min-height: calc(100vh - 120px); /* Occupa almeno l'altezza dello schermo meno 120px */
 }
