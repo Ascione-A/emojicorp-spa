@@ -1,21 +1,26 @@
-/* Stili specifici per la sezione Frutta */
+/* Stili specifici per le schede della sezione Frutta */
+
+/* Card base: rimuove il bordo predefinito, aggiunge un bordo superiore rosso, angoli arrotondati e transizioni fluide */
 .card {
-  border: none;
-  border-top: 4px solid #dc3545; /* Accento rosso/frutta */
-  border-radius: 12px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: none; /* Rimuove il bordo predefinito di Bootstrap */
+  border-top: 4px solid #dc3545; /* Bordo superiore rosso di 4px (accento frutta) */
+  border-radius: 12px; /* Arrotonda gli angoli della scheda */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transizione di 0.2s per movimento e ombra */
 }
 
+/* Effetto al passaggio del mouse sulla card: solleva la scheda e crea un'ombra rossa morbida */
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(220, 53, 69, 0.15) !important;
+  transform: translateY(-5px); /* Sposta la scheda verso l'alto di 5px */
+  box-shadow: 0 8px 16px rgba(220, 53, 69, 0.15) !important; /* Ombra rossa sfumata (forzata con !important) */
 }
 
+/* Stile per l'emoji/icona grande e predisposizione all'animazione */
 .display-1 {
-  font-size: 4rem;
-  transition: transform 0.2s ease;
+  font-size: 4rem; /* Imposta la dimensione del testo/emoji a 64px (4rem) */
+  transition: transform 0.2s ease; /* Transizione fluida per l'effetto ingrandimento */
 }
 
+/* Effetto zoom sull'emoji quando il mouse passa sopra la card */
 .card:hover .display-1 {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Ingrandisce l'emoji del 10% */
 }

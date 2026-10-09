@@ -15,24 +15,24 @@ export class GenericComponent implements OnInit {
 
   private dataset: Record<string, Emoji[]> = {
     animals: [
-      { name: 'Leone', emoji: '🦁', category: 'Mammifero' },
-      { name: 'Aquila', emoji: '🦅', category: 'Uccello' },
-      { name: 'Squalo', emoji: '🦈', category: 'Pesce' },
-      { name: 'Panda', emoji: '🐼', category: 'Mammifero' }
+      { name: 'Leone', emoji: '🦁', category: 'Savana' },
+      { name: 'Aquila', emoji: '🦅', category: 'Montagna' },
+      { name: 'Squalo', emoji: '🦈', category: 'Oceano' },
+      { name: 'Panda', emoji: '🐼', category: 'Giungla' }
     ],
     fruits: [
       { name: 'Mela', emoji: '🍎', category: 'Fresco' },
       { name: 'Banana', emoji: '🍌', category: 'Tropicale' },
-      { name: 'Fragola', emoji: '🍓', category: 'Rosso' }
+      { name: 'Fragola', emoji: '🍓', category: 'Dolce' }
     ],
     food: [
       { name: 'Pizza', emoji: '🍕', category: 'Italiano' },
-      { name: 'Burger', emoji: '🍔', category: 'Fast Food' },
+      { name: 'Burger', emoji: '🍔', category: 'Americano' },
       { name: 'Taco', emoji: '🌮', category: 'Messicano' }
     ],
     vehicles: [
       { name: 'Auto', emoji: '🚗', category: 'Terrestre' },
-      { name: 'Aereo', emoji: '✈️', category: 'Aereo' },
+      { name: 'Aereo', emoji: '✈️', category: 'Cielo' },
       { name: 'Razzo', emoji: '🚀', category: 'Spaziale' }
     ]
   };

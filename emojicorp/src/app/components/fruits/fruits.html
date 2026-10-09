@@ -1,15 +1,34 @@
+<!-- Contenitore principale Bootstrap centrato con margine verticale (top/bottom) -->
 <div class="container my-4">
+
+  <!-- Titolo di sezione con margine inferiore -->
   <h2 class="mb-4">Frutta Fresca (Statico)</h2>
+
+  <!-- Riga della griglia Bootstrap con spaziatura (gutter) di 16px tra le colonne -->
   <div class="row g-3">
+
+    <!-- Ciclo Angular (v17+): scorre l'array 'fruits' e usa 'item.name' come chiave univoca -->
     @for (item of fruits; track item.name) {
+
+      <!-- Colonna responsive: 1 elemento per riga su mobile, 2 su schermi Small, 4 su Desktop -->
       <div class="col-12 col-sm-6 col-md-3">
+
+        <!-- Card Bootstrap con testo centrato, ombra leggera e padding interno -->
         <div class="card text-center shadow-sm p-3">
+
+          <!-- Mostra l'emoji della frutta con formato gigante (display-1) tramite interpolazione Angular -->
           <div class="display-1">{{ item.emoji }}</div>
+
+          <!-- Corpo della card con padding ridotto -->
           <div class="card-body p-2">
+            <!-- Titolo della card che mostra il nome della frutta (senza margini esterni) -->
             <h5 class="card-title m-0">{{ item.name }}</h5>
           </div>
+
         </div>
       </div>
-    }
+
+    } <!-- Fine del ciclo @for -->
+
   </div>
 </div>
