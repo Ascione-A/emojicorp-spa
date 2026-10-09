@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Emoji } from '../../models/emoji.model';
 
 @Component({
   selector: 'app-generic',
   standalone: true,
+  imports: [],
   templateUrl: './generic.html',
   styleUrl: './generic.css'
 })
@@ -15,8 +16,8 @@ export class GenericComponent implements OnInit {
   private dataset: Record<string, Emoji[]> = {
     animals: [
       { name: 'Leone', emoji: '🦁', category: 'Mammifero' },
-      { name: 'Cane', emoji: '🐶', category: 'Mammifero' },
-      { name: 'Gatto', emoji: '🐱', category: 'Mammifero' },
+      { name: 'Aquila', emoji: '🦅', category: 'Uccello' },
+      { name: 'Squalo', emoji: '🦈', category: 'Pesce' },
       { name: 'Panda', emoji: '🐼', category: 'Mammifero' }
     ],
     fruits: [
@@ -36,24 +37,25 @@ export class GenericComponent implements OnInit {
     ]
   };
 
-  constructor(private route: ActivatedRoute) {}
+  // Iniezione di ActivatedRoute e ChangeDetectorRef
+  constructor(
+    private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-    // Iscrizione all'Observable paramMap: intercetta il cambio dell'URL in tempo reale
     this.route.paramMap.subscribe((params: ParamMap) => {
       const id = params.get('id');
-      this.loadCategoryData(id);
-    });
-  }
+      if (id && this.dataset[id]) {
+        this.categoryKey = id;
+        this.itemsList = this.dataset[id];
+      } else {
+        this.categoryKey = id || 'Sconosciuta';
+        this.itemsList = [];
+      }
 
-  private loadCategoryData(id: string | null): void {
-    if (id && this.dataset[id]) {
-      this.categoryKey = id;
-      // Assegnazione di un nuovo riferimento array per forzare il refresh della vista
-      this.itemsList = [...this.dataset[id]];
-    } else {
-      this.categoryKey = '';
-      this.itemsList = [];
-    }
+      // Forza il refresh immediato dell'interfaccia grafica
+      this.cdr.detectChanges();
+    });
   }
 }

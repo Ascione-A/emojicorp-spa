@@ -1,18 +1,28 @@
+/* Card dinamica con effetto sollevamento */
 .emoji-card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 16px;
+  background: #ffffff;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
   cursor: pointer;
 }
 
 .emoji-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12) !important;
 }
 
+/* Animazione ingrandimento emoji */
 .emoji-icon {
   user-select: none;
-  transition: transform 0.2s;
+  transition: transform 0.25s ease;
 }
 
 .emoji-card:hover .emoji-icon {
-  transform: scale(1.15);
+  transform: scale(1.2) rotate(3deg);
+}
+
+/* Badge personalizzati */
+.badge {
+  letter-spacing: 0.5px;
+  padding: 0.5em 0.8em;
 }

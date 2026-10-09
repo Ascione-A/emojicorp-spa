@@ -1,18 +1,19 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Generic } from './generic';
+import { ComponentFixture, TestBed } from '@angular/core';
+import { RouterTestingModule } from '@angular/router/testing';
+import { GenericComponent } from './generic';
 
-describe('Generic', () => {
-  let component: Generic;
-  let fixture: ComponentFixture<Generic>;
+describe('GenericComponent', () => {
+  let component: GenericComponent;
+  let fixture: ComponentFixture<GenericComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Generic],
+      imports: [GenericComponent, RouterTestingModule]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Generic);
+    fixture = TestBed.createComponent(GenericComponent);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {

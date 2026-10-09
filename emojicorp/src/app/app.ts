@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+// 1. Importa RouterLink e RouterLinkActive da @angular/router
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  // FONDAMENTALE: RouterLink e RouterLinkActive DEVONO essere inseriti negli imports
+  // 2. Inseriscili nell'array imports
   imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.html',
   styleUrl: './app.css'

@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-animals',
   standalone: true,
+  imports: [],
   templateUrl: './animals.html',
   styleUrl: './animals.css'
 })
@@ -13,4 +14,4 @@ export class AnimalsComponent {
     { name: 'Gatto', emoji: '🐱' },
     { name: 'Panda', emoji: '🐼' }
   ];
-} 
+}
