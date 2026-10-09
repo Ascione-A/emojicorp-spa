@@ -1,16 +1,29 @@
+<!-- Contenitore principale della pagina con margine verticale -->
 <div class="container my-4">
+  
+  <!-- Intestazione: Titolo della categoria e contatore degli elementi -->
   <div class="d-flex align-items-center mb-4">
+    <!-- Nome della categoria in formato capitalizzato -->
     <h2 class="text-capitalize me-3 m-0">{{ categoryKey }}</h2>
+    <!-- Badge primario con il totale degli elementi presente nel template -->
     <span class="badge bg-primary fs-6">{{ itemsList.length }} Elementi</span>
   </div>
 
+  <!-- Griglia Bootstrap con spaziatura tra gli elementi -->
   <div class="row g-4">
+    <!-- Ciclo Angular (@for) per iterare sulla lista degli elementi -->
     @for (item of itemsList; track item.name) {
+      <!-- Colonna responsive: 1 colonna su mobile, 2 su tablet, 4 su desktop -->
       <div class="col-12 col-sm-6 col-md-3">
+        <!-- Scheda dell'elemento (Card) -->
         <div class="card h-100 shadow-sm border-0 emoji-card">
           <div class="card-body text-center d-flex flex-column justify-content-center">
+            <!-- Icona emoji grande -->
             <div class="display-1 my-3 emoji-icon">{{ item.emoji }}</div>
+            <!-- Nome dell'elemento -->
             <h4 class="card-title fw-bold text-dark">{{ item.name }}</h4>
+            
+            <!-- Condizione Angular (@if): mostra la categoria secondaria se presente -->
             @if (item.category) {
               <div class="mt-2">
                 <span class="badge bg-secondary rounded-pill">{{ item.category }}</span>
@@ -20,6 +33,7 @@
         </div>
       </div>
     } @empty {
+      <!-- Stato vuoto (@empty): mostrato quando itemsList non contiene elementi -->
       <div class="col-12 text-center my-5">
         <div class="alert alert-warning">Nessun elemento trovato per la categoria specificata.</div>
       </div>
